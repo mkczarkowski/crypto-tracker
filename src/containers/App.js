@@ -8,7 +8,10 @@ class App extends Component {
     return (
       <div>
         <Header />
-        <Coin />
+        <Coin name="Bitcoin" acronym="BTC" value={11116} cap={188698026949} />
+        <Coin name="Etherum" acronym="ETH" value={842} cap={82581287147} />
+        <Coin name="NEO" acronym="NEO" value={117} cap={7624760000} />
+        <Coin name="EOS" acronym="EOS" value={7} cap={5513844716} />
       </div>
     );
   }
