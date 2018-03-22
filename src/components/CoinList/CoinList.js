@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 import Coin from "./Coin/Coin";
 
 const CoinList = ({ cryptos }) => {
-  return cryptos.map((crypto, i) => <Coin {...crypto} key={i} />);
+  return cryptos.map(crypto => <Coin {...crypto} key={crypto.acronym} />);
 };
 
 CoinList.propTypes = {
