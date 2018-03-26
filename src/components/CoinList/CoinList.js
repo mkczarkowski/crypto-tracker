@@ -5,11 +5,12 @@ import Coin from "./Coin/Coin";
 
 const CoinList = ({ cryptos }) => {
   const isListEmpty = cryptos.length === 0;
+  const renderCoin = crypto => <Coin {...crypto} key={crypto.acronym} />;
   const coinList = isListEmpty ? (
-        <p>Brak wyników dla wprowadzonej frazy.</p>
-    ) : (
-        cryptos.map(crypto => <Coin {...crypto} key={crypto.acronym} />)
-    );
+    <p>Brak wyników dla wprowadzonej frazy.</p>
+  ) : (
+    cryptos.map(renderCoin)
+  );
 
   return coinList;
 };
