@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 
 import Coin from "./Coin/Coin";
+import CoinListHead from "./CoinListHead/CoinListHead";
 
 const CoinList = ({ cryptos }) => {
   const isListEmpty = cryptos.length === 0;
@@ -12,7 +13,12 @@ const CoinList = ({ cryptos }) => {
     cryptos.map(renderCoin)
   );
 
-  return coinList;
+  return (
+    <div>
+      <CoinListHead />
+      {coinList}
+    </div>
+  );
 };
 
 CoinList.propTypes = {
