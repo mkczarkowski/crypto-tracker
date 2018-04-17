@@ -1,74 +1,64 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React from 'react';
+import PropTypes from 'prop-types';
 
-import CoinListCell from "../CoinListCell/CoinListCell";
-import CoinListRow from "../CoinListRow/CoinListRow";
+import CoinListCell from '../CoinListCell/CoinListCell';
+import CoinListRow from '../CoinListRow/CoinListRow';
 
-const malachite = "#04BF12";
-const grenadier = "#dd2c00";
+const malachite = '#04BF12';
+const grenadier = '#dd2c00';
 const styles = {
-    coinSymbol: {
-        width: 36,
-        height: 36,
-        margin: 10
-    },
-    percentChangePlus: {
-        color: malachite
-    },
-    percentChangeMinus: {
-        color: grenadier
-    }
+  coinSymbol: {
+    width: 36,
+    height: 36,
+    margin: 10,
+  },
+  percentChangePlus: {
+    color: malachite,
+  },
+  percentChangeMinus: {
+    color: grenadier,
+  },
 };
 
-const Coin = ({symbol, name, price, change, cap, supply, acronym}) => {
-    function formatAsCurrency(value) {
-        const currencyFormatRegex = /\B(?=(\d{3})+(?!\d))/g;
-        return `$${String(value)
-            .replace(currencyFormatRegex, " ")
-            .trim()}`;
-    }
+const Coin = ({ symbol, name, price, change, cap, supply, acronym }) => {
+  function formatAsCurrency(value) {
+    const currencyFormatRegex = /\B(?=(\d{3})+(?!\d))/g;
+    return `$${String(value)
+      .replace(currencyFormatRegex, ' ')
+      .trim()}`;
+  }
 
-    return (
-        <CoinListRow>
-            <CoinListCell isLarge>
-                <img
-                    src={symbol}
-                    alt={`${name}'s symbol`}
-                    style={styles.coinSymbol}
-                />
-                <div>{name}</div>
-            </CoinListCell>
-            <CoinListCell>{formatAsCurrency(price)}</CoinListCell>
-            <CoinListCell
-                additionalStyling={
-                    change >= 0 ? styles.percentChangePlus : styles.percentChangeMinus
-                }
-            >
-                {change} %
-            </CoinListCell>
-            <CoinListCell>{formatAsCurrency(cap)}</CoinListCell>
-            <CoinListCell>
-                {formatAsCurrency(supply)}
-                {` ${acronym}`}
-            </CoinListCell>
-        </CoinListRow>
-    );
+  return (
+    <CoinListRow>
+      <CoinListCell isLarge>
+        <img src={symbol} alt={`${name}'s symbol`} style={styles.coinSymbol} />
+        <div>{name}</div>
+      </CoinListCell>
+      <CoinListCell>{formatAsCurrency(price)}</CoinListCell>
+      <CoinListCell
+        additionalStyling={
+          change >= 0 ? styles.percentChangePlus : styles.percentChangeMinus
+        }
+      >
+        {change} %
+      </CoinListCell>
+      <CoinListCell>{formatAsCurrency(cap)}</CoinListCell>
+      <CoinListCell>
+        {formatAsCurrency(supply)}
+        {` ${acronym}`}
+      </CoinListCell>
+    </CoinListRow>
+  );
 };
 
 Coin.propTypes = {
-    symbol: PropTypes.string,
-    name: PropTypes.string.isRequired,
-    price: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
-    change: PropTypes.number,
-    cap: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
-    supply: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
-    acronym: PropTypes.string,
-};
-
-Coin.defaultProps = {
-    acronym: "-",
-    value: "Unknown",
-    cap: "Unknown"
+  symbol: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  price: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired,
+  change: PropTypes.number.isRequired,
+  cap: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired,
+  supply: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired,
+  acronym: PropTypes.string.isRequired,
 };
 
 export default Coin;

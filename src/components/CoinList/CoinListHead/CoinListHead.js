@@ -1,7 +1,7 @@
-import React from "react";
+import React from 'react';
 
-import CoinListCell from "../CoinListCell/CoinListCell";
-import CoinListRow from "../CoinListRow/CoinListRow";
+import CoinListCell from '../CoinListCell/CoinListCell';
+import CoinListRow from '../CoinListRow/CoinListRow';
 
 const CoinListHead = () => (
   <CoinListRow>
