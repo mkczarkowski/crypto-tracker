@@ -9,8 +9,9 @@
     "eslint-plugin-css-modules": "^2.7.5",
     "eslint-plugin-prettier": "^2.6.0",
     "lodash.debounce": "^4.0.8",
-    "prop-types": "^15.6.1",
     "prettier": "^1.11.1",
+    "prop-types": "^15.6.1",
+    "radium": "^0.24.0",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-scripts": "1.1.1"
