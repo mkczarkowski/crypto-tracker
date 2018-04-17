@@ -87,6 +87,7 @@ module.exports = {
     // ESLint plugin for prettier formatting
     // https://github.com/prettier/eslint-plugin-prettier
     'prettier/prettier': 'error',
+    'linebreak-style': 0,
   },
 
   settings: {
