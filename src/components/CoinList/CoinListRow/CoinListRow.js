@@ -1,27 +1,34 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Radium from "radium";
 
-const CoinListRow = ({ children }) => {
-  const containerPadding = '15%';
-  const styles = {
-    container: {
-      display: 'flex',
-      flexDirection: 'row',
-      paddingLeft: containerPadding,
-      paddingRight: containerPadding,
-    },
-  };
+import mainStyles from "../../../shared/styles";
 
-  return <div style={styles.container}>{children}</div>;
+const CoinListRow = ({children}) => {
+    const styles = {
+        container: {
+            display: 'flex',
+            flexDirection: 'row',
+            paddingLeft: mainStyles.contentPadding,
+            paddingRight: mainStyles.contentPadding,
+            "@media (max-width: 800px)": {
+                paddingLeft: mainStyles.smallContentPadding,
+                paddingRight: mainStyles.smallContentPadding,
+                fontSize: "0.8em"
+            }
+        },
+    };
+
+    return <div style={styles.container}>{children}</div>
 };
 
 CoinListRow.propTypes = {
-  additionalStyling: PropTypes.object,
-  children: PropTypes.node.isRequired,
+    additionalStyling: PropTypes.object,
+    children: PropTypes.node.isRequired,
 };
 
 CoinListRow.defaultProps = {
-  additionalStyling: {},
+    additionalStyling: {},
 };
 
-export default CoinListRow;
+export default Radium(CoinListRow);

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import formatAsCurrency from '../../utils/helpers';
 
-const headerContainer = {
+const container = {
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'center',
@@ -15,7 +15,7 @@ const appTitle = {
 };
 
 const Header = ({ cap }) => (
-  <div style={headerContainer}>
+  <div style={container}>
     <h1 style={appTitle}>Crypto Tracker</h1>
     <p>Market Cap: {formatAsCurrency(cap)}</p>
   </div>
