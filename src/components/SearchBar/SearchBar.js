@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Radium from "radium";
 
-import mainStyles from "../../shared/styles";
+import mainStyles from "../../shared/styles/styles";
 
 const SearchBar = ({handleChange, searchQuery}) => {
 

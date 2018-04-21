@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import CoinListCell from '../CoinListCell/CoinListCell';
 import CoinListRow from '../CoinListRow/CoinListRow';
 
-import formatAsCurrency from '../../../utils/helpers';
+import formatAsCurrency from '../../../shared/utils/helpers';
 
 const malachite = '#04BF12';
 const grenadier = '#dd2c00';
