@@ -4,8 +4,7 @@ import Radium from "radium";
 
 const CoinListCell = ({
                           isLarge,
-                          hasBoldText,
-                          hasThinBorder,
+                          isHeader,
                           additionalStyling,
                           children,
                       }) => {
@@ -19,10 +18,10 @@ const CoinListCell = ({
             display: 'flex',
             alignItems: 'center',
             flex: isLarge ? largeFieldFlex : smallFieldFlex,
-            fontWeight: hasBoldText ? 700 : 300,
+            fontWeight: isHeader ? 700 : 300,
             paddingTop: fieldPadding,
             paddingBottom: fieldPadding,
-            borderBottom: `${hasThinBorder ? 4 : 2}px solid ${fieldBorderColor}`,
+            borderBottom: `${isHeader ? 4 : 2}px solid ${fieldBorderColor}`,
         },
     };
 
