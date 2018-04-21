@@ -5,21 +5,13 @@ import CoinListRow from '../CoinListRow/CoinListRow';
 
 const CoinListHead = () => (
   <CoinListRow>
-    <CoinListCell isLarge hasBoldText hasThinBorder>
+    <CoinListCell isLarge isHeader>
       Name
     </CoinListCell>
-    <CoinListCell hasBoldText hasThinBorder>
-      Price
-    </CoinListCell>
-    <CoinListCell hasBoldText hasThinBorder>
-      Change (24h)
-    </CoinListCell>
-    <CoinListCell hasBoldText hasThinBorder>
-      Market cap
-    </CoinListCell>
-    <CoinListCell hasBoldText hasThinBorder>
-      Circulating supply
-    </CoinListCell>
+    <CoinListCell isHeader>Price</CoinListCell>
+    <CoinListCell isHeader>Change (24h)</CoinListCell>
+    <CoinListCell isHeader>Market cap</CoinListCell>
+    <CoinListCell isHeader>Circulating supply</CoinListCell>
   </CoinListRow>
 );
 

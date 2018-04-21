@@ -1,22 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
-import formatAsCurrency from '../../utils/helpers';
-
-const headerContainer = {
-  display: 'flex',
-  flexDirection: 'column',
-  alignItems: 'center',
-  marginTop: 36,
-};
-
-const appTitle = {
-  fontWeight: 'bold',
-};
+import styles from './Header.css';
+import formatAsCurrency from '../../shared/utils/helpers';
 
 const Header = ({ cap }) => (
-  <div style={headerContainer}>
-    <h1 style={appTitle}>Crypto Tracker</h1>
+  <div className={styles.header}>
+    <h1 className={styles['header__title']}>Crypto Tracker</h1>
     <p>Market Cap: {formatAsCurrency(cap)}</p>
   </div>
 );

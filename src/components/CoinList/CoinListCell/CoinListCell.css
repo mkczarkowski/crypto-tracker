@@ -1,0 +1,18 @@
+.cell {
+    display: flex;
+    align-items: center;
+    border-bottom: 2px solid #dedede;
+}
+
+.cell--large {
+    flex: 1 0 25%;
+}
+
+.cell--small {
+    flex: 1 0 10%;
+}
+
+.cell--header {
+    font-weight: 700;
+    border-bottom-width: 4px;
+}

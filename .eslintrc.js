@@ -88,6 +88,7 @@ module.exports = {
     // https://github.com/prettier/eslint-plugin-prettier
     'prettier/prettier': 'error',
     'linebreak-style': 0,
+    'dot-notation': 0,
   },
 
   settings: {

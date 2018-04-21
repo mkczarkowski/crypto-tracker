@@ -1,0 +1,11 @@
+.coin-symbol {
+  width: 36px;
+  height: 36px;
+  margin: 10px;
+}
+.percent-change--plus {
+  color: #04bf12;
+}
+.percent-change--minus {
+  color: #dd2c00;
+}

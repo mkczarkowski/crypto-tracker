@@ -1,40 +1,33 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import styles from './Coin.css';
 import CoinListCell from '../CoinListCell/CoinListCell';
 import CoinListRow from '../CoinListRow/CoinListRow';
 
-import formatAsCurrency from '../../../utils/helpers';
-
-const malachite = '#04BF12';
-const grenadier = '#dd2c00';
-const styles = {
-  coinSymbol: {
-    width: 36,
-    height: 36,
-    margin: 10,
-  },
-  percentChangePlus: {
-    color: malachite,
-  },
-  percentChangeMinus: {
-    color: grenadier,
-  },
-};
+import formatAsCurrency from '../../../shared/utils/helpers';
 
 const Coin = ({ symbol, name, price, change, cap, supply, acronym }) => (
   <CoinListRow>
     <CoinListCell isLarge>
-      <img src={symbol} alt={`${name}'s symbol`} style={styles.coinSymbol} />
+      <img
+        src={symbol}
+        alt={`${name}'s symbol`}
+        className={styles['coin-symbol']}
+      />
       <div>{name}</div>
     </CoinListCell>
     <CoinListCell>{formatAsCurrency(price)}</CoinListCell>
-    <CoinListCell
-      additionalStyling={
-        change >= 0 ? styles.percentChangePlus : styles.percentChangeMinus
-      }
-    >
-      {change} %
+    <CoinListCell>
+      <p
+        className={
+          change >= 0
+            ? styles['percent-change--plus']
+            : styles['percent-change--minus']
+        }
+      >
+        {change} %
+      </p>
     </CoinListCell>
     <CoinListCell>{formatAsCurrency(cap)}</CoinListCell>
     <CoinListCell>

@@ -6,10 +6,14 @@ import SearchBar from '../components/SearchBar/SearchBar';
 import CoinList from '../components/CoinList/CoinList';
 
 class App extends Component {
+  static getIconPath(acronym) {
+    return `${window.location.origin}/icons/${acronym.toLowerCase()}.png`;
+  }
+
   state = {
     cryptos: [
       {
-        symbol: this.getIconPath('btc'),
+        symbol: App.getIconPath('btc'),
         name: 'Bitcoin',
         acronym: 'BTC',
         price: 8714,
@@ -18,7 +22,7 @@ class App extends Component {
         supply: 147379083734,
       },
       {
-        symbol: this.getIconPath('eth'),
+        symbol: App.getIconPath('eth'),
         name: 'Etherum',
         acronym: 'ETH',
         price: 688,
@@ -27,7 +31,7 @@ class App extends Component {
         supply: 147379083734,
       },
       {
-        symbol: this.getIconPath('neo'),
+        symbol: App.getIconPath('neo'),
         name: 'NEO',
         acronym: 'NEO',
         price: 84,
@@ -36,7 +40,7 @@ class App extends Component {
         supply: 147379083734,
       },
       {
-        symbol: this.getIconPath('eos'),
+        symbol: App.getIconPath('eos'),
         name: 'EOS',
         acronym: 'EOS',
         price: 5,
@@ -54,16 +58,12 @@ class App extends Component {
     this.setMatchedCryptos();
   }
 
-  getIconPath(acronym) {
-    return `${window.location.origin}/icons/${acronym.toLowerCase()}.png`;
-  }
-
   setMatchedCryptos = debounce(() => {
     const cryptos = [...this.state.cryptos];
 
     function isMatched(phrase) {
       const regex = new RegExp(`\\b${phrase}.*\\b`, 'i');
-      return function(crypto) {
+      return function isPhraseInCrypto(crypto) {
         return Object.values(crypto).some(val => regex.test(val));
       };
     }

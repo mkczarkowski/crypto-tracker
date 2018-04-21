@@ -1,27 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const CoinListRow = ({ children }) => {
-  const containerPadding = '15%';
-  const styles = {
-    container: {
-      display: 'flex',
-      flexDirection: 'row',
-      paddingLeft: containerPadding,
-      paddingRight: containerPadding,
-    },
-  };
+import styles from './CoinListRow.css';
 
-  return <div style={styles.container}>{children}</div>;
-};
+const CoinListRow = ({ children }) => (
+  <div className={styles.row}>{children}</div>
+);
 
 CoinListRow.propTypes = {
-  additionalStyling: PropTypes.object,
   children: PropTypes.node.isRequired,
-};
-
-CoinListRow.defaultProps = {
-  additionalStyling: {},
 };
 
 export default CoinListRow;
