@@ -3,8 +3,9 @@ import PropTypes from 'prop-types';
 
 import styles from './CoinListCell.css';
 
-const CoinListCell = ({ isLarge, isHeader, additionalStyling, children }) => {
-  const appliedClasses = [styles.cell, ...additionalStyling];
+const CoinListCell = ({ isLarge, isHeader, children }) => {
+  const appliedClasses = [styles.cell];
+
   if (isLarge) {
     appliedClasses.push(styles['cell--large']);
   } else {
@@ -21,15 +22,12 @@ const CoinListCell = ({ isLarge, isHeader, additionalStyling, children }) => {
 CoinListCell.propTypes = {
   isLarge: PropTypes.bool,
   isHeader: PropTypes.bool,
-  additionalStyling: PropTypes.string,
-  // additionalStyling: PropTypes.objectOf(PropTypes.string, PropTypes.number),
   children: PropTypes.node.isRequired,
 };
 
 CoinListCell.defaultProps = {
   isLarge: false,
   isHeader: false,
-  additionalStyling: {},
 };
 
 export default CoinListCell;
