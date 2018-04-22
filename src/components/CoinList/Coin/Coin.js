@@ -4,10 +4,10 @@ import PropTypes from 'prop-types';
 import CoinListCell from '../CoinListCell/CoinListCell';
 import CoinListRow from '../CoinListRow/CoinListRow';
 
-import formatAsCurrency from '../../../utils/helpers';
+import formatAsCurrency from '../../../shared/utils/helpers';
 
-const malachite = '#04BF12';
-const grenadier = '#dd2c00';
+const percentChangePlusColor = '#04BF12';
+const percentChangeMinusColor = '#dd2c00';
 const styles = {
   coinSymbol: {
     width: 36,
@@ -15,26 +15,35 @@ const styles = {
     margin: 10,
   },
   percentChangePlus: {
-    color: malachite,
+    color: percentChangePlusColor,
   },
   percentChangeMinus: {
-    color: grenadier,
+    color: percentChangeMinusColor,
   },
 };
 
-const Coin = ({ symbol, name, price, change, cap, supply, acronym }) => (
+const Coin = ({ symbolPath, name, price, change, cap, supply, acronym }) => (
   <CoinListRow>
     <CoinListCell isLarge>
-      <img src={symbol} alt={`${name}'s symbol`} style={styles.coinSymbol} />
+      <img
+        src={symbolPath}
+        alt={`${name}'s symbol`}
+        style={styles.coinSymbol}
+      />
       <div>{name}</div>
     </CoinListCell>
     <CoinListCell>{formatAsCurrency(price)}</CoinListCell>
-    <CoinListCell
-      additionalStyling={
-        change >= 0 ? styles.percentChangePlus : styles.percentChangeMinus
-      }
-    >
-      {change} %
+    <CoinListCell>
+      <div
+        style={{
+          color:
+            change >= 0
+              ? styles.percentChangePlus.color
+              : styles.percentChangeMinus.color,
+        }}
+      >
+        {change} %
+      </div>
     </CoinListCell>
     <CoinListCell>{formatAsCurrency(cap)}</CoinListCell>
     <CoinListCell>
@@ -45,7 +54,7 @@ const Coin = ({ symbol, name, price, change, cap, supply, acronym }) => (
 );
 
 Coin.propTypes = {
-  symbol: PropTypes.string.isRequired,
+  symbolPath: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   price: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired,
   change: PropTypes.number.isRequired,
