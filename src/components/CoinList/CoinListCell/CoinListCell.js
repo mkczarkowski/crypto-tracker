@@ -1,8 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import styleVars from '../../../shared/styles/variables';
-
 const CoinListCell = ({ isLarge, isHeader, children }) => {
   const cellPadding = 10;
   const largeCellFlex = '1 0 25%';
