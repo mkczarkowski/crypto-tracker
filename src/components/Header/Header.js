@@ -11,7 +11,7 @@ const styles = {
     marginTop: 36,
   },
   title: {
-    fontWeight: 'bold',
+    fontFamily: '"Trebuchet MS", Helvetica, sans-serif',
   },
 };
 
