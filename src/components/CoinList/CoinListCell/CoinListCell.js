@@ -5,12 +5,14 @@ import styleVars from '../../../shared/styles/variables';
 
 const CoinListCell = ({ isLarge, isHeader, children }) => {
   const cellPadding = 10;
+  const largeCellFlex = '1 0 25%';
+  const smallCellFlex = '1 0 10%';
 
   const styles = {
     container: {
       display: 'flex',
       alignItems: 'center',
-      flex: isLarge ? styleVars.baseMargin : styleVars.baseMargin,
+      flex: isLarge ? largeCellFlex : smallCellFlex,
       fontWeight: isHeader ? 700 : 300,
       paddingTop: cellPadding,
       paddingBottom: cellPadding,
