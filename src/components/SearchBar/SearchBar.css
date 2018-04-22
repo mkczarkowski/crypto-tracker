@@ -1,5 +1,5 @@
 .search-bar {
-    composes: base-padding-right from "../../shared/styles/helpers.css";
+    composes: base-margin-right from "../../shared/styles/helpers.css";
     display: flex;
     justify-content: flex-end;
     margin-bottom: 24px;
@@ -7,7 +7,7 @@
 
 @media (max-width: 800px) {
     .search-bar {
-        composes: small-padding-right from "../../shared/styles/helpers.css";
+        margin-right: 5%;
     }
 }
 

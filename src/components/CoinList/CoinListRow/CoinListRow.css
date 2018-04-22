@@ -1,14 +1,14 @@
 .row {
-  composes: base-padding-left from '../../../shared/styles/helpers.css';
-  composes: base-padding-right from '../../../shared/styles/helpers.css';
+  composes: base-margin-left from '../../../shared/styles/helpers.css';
+  composes: base-margin-right from '../../../shared/styles/helpers.css';
   display: flex;
   flex-direction: row;
 }
 
 @media (max-width: 800px) {
   .row {
-    composes: small-padding-left from '../../../shared/styles/helpers.css';
-    composes: small-padding-right from '../../../shared/styles/helpers.css';
+    margin-left: 5%;
+    margin-right: 5%;
     font-size: 0.8em;
   }
 }
