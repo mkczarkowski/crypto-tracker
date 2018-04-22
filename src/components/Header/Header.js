@@ -4,7 +4,7 @@ import styled from 'styled-components';
 
 import formatAsCurrency from '../../shared/utils/helpers';
 
-const Container = styled.div`
+const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -16,10 +16,10 @@ const Title = styled.h1`
 `;
 
 const Header = ({ cap }) => (
-  <Container>
+  <Wrapper>
     <Title>Crypto Tracker</Title>
     <p>Market Cap: {formatAsCurrency(cap)}</p>
-  </Container>
+  </Wrapper>
 );
 
 Header.propTypes = {

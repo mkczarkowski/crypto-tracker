@@ -20,10 +20,10 @@ const PercentChange = styled.div`
     props.change > 0 ? percentChangePlusColor : percentChangeMinusColor};
 `;
 
-const Coin = ({ symbol, name, price, change, cap, supply, acronym }) => (
+const Coin = ({ symbolPath, name, price, change, cap, supply, acronym }) => (
   <CoinListRow>
     <CoinListCell isLarge>
-      <Symbol src={symbol} alt={`${name}'s symbol`} />
+      <Symbol src={symbolPath} alt={`${name}'s symbol`} />
       <div>{name}</div>
     </CoinListCell>
     <CoinListCell>{formatAsCurrency(price)}</CoinListCell>
@@ -39,7 +39,7 @@ const Coin = ({ symbol, name, price, change, cap, supply, acronym }) => (
 );
 
 Coin.propTypes = {
-  symbol: PropTypes.string.isRequired,
+  symbolPath: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   price: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired,
   change: PropTypes.number.isRequired,

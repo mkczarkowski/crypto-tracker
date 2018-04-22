@@ -2,9 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-import sharedStyles from '../../shared/styles/styles';
+import sharedStyles from '../../shared/styles/variables';
 
-const Container = styled.div`
+const Wrapper = styled.div`
   display: flex;
   padding-right: ${sharedStyles.baseContentPadding};
   justify-content: flex-end;
@@ -30,9 +30,9 @@ const Input = styled.input`
 
 const SearchBar = ({ handleChange, searchQuery }) => {
   return (
-    <Container>
+    <Wrapper>
       <Input value={searchQuery} placeholder="Search" onChange={handleChange} />
-    </Container>
+    </Wrapper>
   );
 };
 
