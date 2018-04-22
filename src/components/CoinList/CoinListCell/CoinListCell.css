@@ -7,14 +7,17 @@
 }
 
 .cell--large {
+  composes: cell;
   flex: 1 0 25%;
 }
 
 .cell--small {
+  composes: cell;
   flex: 1 0 10%;
 }
 
 .cell--header {
+  composes: cell;
   font-weight: 700;
   border-bottom-width: 4px;
 }

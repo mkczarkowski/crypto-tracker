@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import styles from './CoinListCell.css';
 
 const CoinListCell = ({ isLarge, isHeader, children }) => {
-  const appliedClasses = [styles.cell];
+  const appliedClasses = [];
 
   if (isLarge) {
     appliedClasses.push(styles['cell--large']);
