@@ -9,7 +9,7 @@ class App extends Component {
   state = {
     cryptos: [
       {
-        symbol: this.getIconPath('btc'),
+        symbolPath: this.getIconPath('btc'),
         name: 'Bitcoin',
         acronym: 'BTC',
         price: 8714,
@@ -18,7 +18,7 @@ class App extends Component {
         supply: 147379083734,
       },
       {
-        symbol: this.getIconPath('eth'),
+        symbolPath: this.getIconPath('eth'),
         name: 'Etherum',
         acronym: 'ETH',
         price: 688,
@@ -27,7 +27,7 @@ class App extends Component {
         supply: 147379083734,
       },
       {
-        symbol: this.getIconPath('neo'),
+        symbolPath: this.getIconPath('neo'),
         name: 'NEO',
         acronym: 'NEO',
         price: 84,
@@ -36,7 +36,7 @@ class App extends Component {
         supply: 147379083734,
       },
       {
-        symbol: this.getIconPath('eos'),
+        symbolPath: this.getIconPath('eos'),
         name: 'EOS',
         acronym: 'EOS',
         price: 5,

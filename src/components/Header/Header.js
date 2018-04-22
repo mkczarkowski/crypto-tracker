@@ -10,13 +10,13 @@ const container = {
   marginTop: 36,
 };
 
-const appTitle = {
+const title = {
   fontWeight: 'bold',
 };
 
 const Header = ({ cap }) => (
   <div style={container}>
-    <h1 style={appTitle}>Crypto Tracker</h1>
+    <h1 style={title}>Crypto Tracker</h1>
     <p>Market Cap: {formatAsCurrency(cap)}</p>
   </div>
 );

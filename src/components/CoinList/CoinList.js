@@ -8,7 +8,9 @@ const CoinList = ({ cryptos }) => {
   const isListEmpty = cryptos.length === 0;
   const renderCoin = crypto => <Coin {...crypto} key={crypto.acronym} />;
   const coinList = isListEmpty ? (
-    <p>Brak wyników dla wprowadzonej frazy.</p>
+    <p style={{ marginTop: '3%', textAlign: 'center', fontSize: '1.2em' }}>
+      Brak wyników dla wprowadzonej frazy.
+    </p>
   ) : (
     cryptos.map(renderCoin)
   );
