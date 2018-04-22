@@ -7,12 +7,12 @@ import styleVars from '../../../shared/styles/variables';
 const Wrapper = styled.div`
   display: flex;
   flex-direction: row;
-  padding-left: ${styleVars.baseContentPadding};
-  padding-right: ${styleVars.baseContentPadding};
+  margin-left: ${styleVars.baseMargin};
+  margin-right: ${styleVars.baseMargin};
 
   @media (max-width: 800px) {
-    padding-left: ${styleVars.smallContentPadding};
-    padding-right: ${styleVars.smallContentPadding};
+    margin-left: ${styleVars.smallMargin};
+    margin-right: ${styleVars.smallMargin};
     font-size: 0.8em;
   }
 `;

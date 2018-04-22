@@ -2,16 +2,16 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-import sharedStyles from '../../shared/styles/variables';
+import styleVars from '../../shared/styles/variables';
 
 const Wrapper = styled.div`
   display: flex;
-  padding-right: ${sharedStyles.baseContentPadding};
+  margin-right: ${styleVars.baseMargin};
   justify-content: flex-end;
   margin-bottom: 24px;
 
   @media (max-width: 800px) {
-    padding-right: ${sharedStyles.smallContentPadding};
+    margin-right: ${styleVars.smallMargin};
   }
 `;
 

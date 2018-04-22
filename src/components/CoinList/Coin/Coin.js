@@ -24,6 +24,7 @@ const Coin = ({ symbolPath, name, price, change, cap, supply, acronym }) => (
   <CoinListRow>
     <CoinListCell isLarge>
       <Symbol src={symbolPath} alt={`${name}'s symbol`} />
+
       <div>{name}</div>
     </CoinListCell>
     <CoinListCell>{formatAsCurrency(price)}</CoinListCell>

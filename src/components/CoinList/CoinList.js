@@ -6,7 +6,7 @@ import Coin from './Coin/Coin';
 import CoinListHead from './CoinListHead/CoinListHead';
 
 const NoResults = styled.p`
-  margin-top: 
+  margin-top: 3%;
   text-align: center;
   font-size: 1.2em;
 `;
