@@ -11,7 +11,7 @@ const container = {
 };
 
 const title = {
-  fontWeight: 'bold',
+  fontFamily: '"Trebuchet MS", Helvetica, sans-serif',
 };
 
 const Header = ({ cap }) => (
