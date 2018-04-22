@@ -8,10 +8,10 @@
 }
 
 /* SMALL MARGINS */
-.small-padding-right {
-  padding-right: 5%;
+.small-margin-right {
+  margin-right: 5%;
 }
 
-.small-padding-left {
-  padding-left: 5%;
+.small-margin-left {
+  margin-left: 5%;
 }
