@@ -45,14 +45,10 @@ class App extends Component {
         supply: 147379083734,
       },
     ],
-    matchedCryptos: [],
+    matchedCryptos: null,
     marketCap: 376097583984,
     searchQuery: '',
   };
-
-  componentWillMount() {
-    this.setMatchedCryptos();
-  }
 
   getIconPath(acronym) {
     return `${window.location.origin}/icons/${acronym.toLowerCase()}.png`;
@@ -85,7 +81,7 @@ class App extends Component {
           handleChange={this.searchChangedHandler}
           searchQuery={this.state.searchQuery}
         />
-        <CoinList cryptos={this.state.matchedCryptos} />
+        <CoinList cryptos={this.state.matchedCryptos !== null ? this.state.matchedCryptos : this.state.cryptos} />
       </div>
     );
   }
