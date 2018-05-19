@@ -1,57 +1,25 @@
 import React, { Component } from 'react';
 import debounce from 'lodash.debounce';
+import axios from 'axios';
 
 import Header from '../components/Header/Header';
 import SearchBar from '../components/SearchBar/SearchBar';
 import CoinList from '../components/CoinList/CoinList';
 
+const coinMarketCapAxiosInstance = axios.create({
+  baseURL: 'https://api.coinmarketcap.com/v2/',
+});
+
 class App extends Component {
   state = {
-    cryptos: [
-      {
-        symbolPath: this.getIconPath('btc'),
-        name: 'Bitcoin',
-        acronym: 'BTC',
-        price: 8714,
-        change: 2.34,
-        cap: 147379083734,
-        supply: 147379083734,
-      },
-      {
-        symbolPath: this.getIconPath('eth'),
-        name: 'Etherum',
-        acronym: 'ETH',
-        price: 688,
-        change: 2.34,
-        cap: 67585640793,
-        supply: 147379083734,
-      },
-      {
-        symbolPath: this.getIconPath('neo'),
-        name: 'NEO',
-        acronym: 'NEO',
-        price: 84,
-        change: 2.34,
-        cap: 5515789500,
-        supply: 147379083734,
-      },
-      {
-        symbolPath: this.getIconPath('eos'),
-        name: 'EOS',
-        acronym: 'EOS',
-        price: 5,
-        change: 2.34,
-        cap: 4141934598,
-        supply: 147379083734,
-      },
-    ],
+    cryptos: [],
     matchedCryptos: null,
     marketCap: 376097583984,
     searchQuery: '',
   };
 
-  getIconPath(acronym) {
-    return `${window.location.origin}/icons/${acronym.toLowerCase()}.png`;
+  getIconPath(id) {
+    return `https://s2.coinmarketcap.com/static/img/coins/64x64/${id}.png`;
   }
 
   setMatchedCryptos = debounce(() => {
@@ -73,6 +41,34 @@ class App extends Component {
     this.setState({ searchQuery: event.target.value }, this.setMatchedCryptos);
   };
 
+  componentDidMount() {
+    coinMarketCapAxiosInstance
+      .get('ticker/?limit=100')
+      .then(({ data: { data: fetchedCryptos } }) => {
+        this.setState({
+          cryptos: Object.keys(fetchedCryptos).map(cryptoId => {
+            const crypto = fetchedCryptos[cryptoId];
+
+            const {
+              name,
+              symbol: acronym,
+              id,
+              circulating_supply: supply,
+            } = crypto;
+            const symbolPath = this.getIconPath(id);
+            const quotesInUsd = crypto.quotes.USD;
+            const {
+              price,
+              market_cap: cap,
+              percent_change_1h: change,
+            } = quotesInUsd;
+
+            return { name, acronym, supply, symbolPath, price, change, cap };
+          }),
+        });
+      });
+  }
+
   render() {
     return (
       <div>
@@ -81,7 +77,13 @@ class App extends Component {
           handleChange={this.searchChangedHandler}
           searchQuery={this.state.searchQuery}
         />
-        <CoinList cryptos={this.state.matchedCryptos !== null ? this.state.matchedCryptos : this.state.cryptos} />
+        <CoinList
+          cryptos={
+            this.state.matchedCryptos !== null
+              ? this.state.matchedCryptos
+              : this.state.cryptos
+          }
+        />
       </div>
     );
   }

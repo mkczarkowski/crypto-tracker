@@ -1,8 +1,10 @@
 {
   "name": "crypto-tracker",
+  "homepage": "https://mkczarkowski.github.io/crypto-tracker",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "axios": "^0.18.0",
     "eslint-config-airbnb": "^16.1.0",
     "eslint-config-prettier": "^2.9.0",
     "eslint-import-resolver-node": "^0.3.2",
@@ -17,6 +19,8 @@
     "styled-components": "^3.2.6"
   },
   "scripts": {
+    "predeploy": "yarn run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
