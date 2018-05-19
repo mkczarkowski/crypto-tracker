@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-import formatAsCurrency from '../../shared/utils/helpers';
+import { formatAsCurrency } from '../../shared/utils/helpers';
 
 const Wrapper = styled.div`
   display: flex;

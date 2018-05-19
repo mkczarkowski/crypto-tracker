@@ -5,7 +5,7 @@ import styled from "styled-components";
 import CoinListCell from '../CoinListCell/CoinListCell';
 import CoinListRow from '../CoinListRow/CoinListRow';
 
-import formatAsCurrency from '../../../shared/utils/helpers';
+import { formatAsCurrency } from '../../../shared/utils/helpers';
 
 const Symbol = styled.img`
   width: 36px;

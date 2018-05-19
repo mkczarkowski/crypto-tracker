@@ -5,6 +5,7 @@ import axios from 'axios';
 import Header from '../components/Header/Header';
 import SearchBar from '../components/SearchBar/SearchBar';
 import CoinList from '../components/CoinList/CoinList';
+import { mapFetchedCryptos } from "../shared/utils/helpers";
 
 const coinMarketCapAxiosInstance = axios.create({
   baseURL: 'https://api.coinmarketcap.com/v2/',
@@ -17,10 +18,6 @@ class App extends Component {
     marketCap: 376097583984,
     searchQuery: '',
   };
-
-  getIconPath(id) {
-    return `https://s2.coinmarketcap.com/static/img/coins/64x64/${id}.png`;
-  }
 
   setMatchedCryptos = debounce(() => {
     const cryptos = [...this.state.cryptos];
@@ -46,25 +43,7 @@ class App extends Component {
       .get('ticker/?limit=100')
       .then(({ data: { data: fetchedCryptos } }) => {
         this.setState({
-          cryptos: Object.keys(fetchedCryptos).map(cryptoId => {
-            const crypto = fetchedCryptos[cryptoId];
-
-            const {
-              name,
-              symbol: acronym,
-              id,
-              circulating_supply: supply,
-            } = crypto;
-            const symbolPath = this.getIconPath(id);
-            const quotesInUsd = crypto.quotes.USD;
-            const {
-              price,
-              market_cap: cap,
-              percent_change_1h: change,
-            } = quotesInUsd;
-
-            return { name, acronym, supply, symbolPath, price, change, cap };
-          }),
+          cryptos: mapFetchedCryptos(fetchedCryptos)
         });
       });
   }
