@@ -12,7 +12,7 @@ const CoinListHead = () => (
       Price
     </CoinListCell>
     <CoinListCell isHeader>
-      Change (24h)
+      Change (1h)
     </CoinListCell>
     <CoinListCell isHeader>
       Market cap
