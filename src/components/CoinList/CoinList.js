@@ -1,17 +1,22 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled from "styled-components";
+import styled from 'styled-components';
+import Spinner from 'react-spinkit';
 
 import Coin from './Coin/Coin';
 import CoinListHead from './CoinListHead/CoinListHead';
 
 const NoResults = styled.p`
   margin-top: 3%;
-  text-align: center;
   font-size: 1.2em;
 `;
 
-const CoinList = ({ cryptos }) => {
+const CenteredSpinner = styled(Spinner)`
+  margin: 3%;
+  text-align: center;
+`;
+
+const CoinList = ({ cryptos, isLoading }) => {
   const isListEmpty = cryptos.length === 0;
   const renderCoin = crypto => <Coin {...crypto} key={crypto.acronym} />;
   const coinList = isListEmpty ? (
@@ -23,7 +28,7 @@ const CoinList = ({ cryptos }) => {
   return (
     <div>
       <CoinListHead />
-      {coinList}
+      {isLoading ? <CenteredSpinner name="three-bounce" /> : coinList}
     </div>
   );
 };

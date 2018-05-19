@@ -5,7 +5,7 @@ import axios from 'axios';
 import Header from '../components/Header/Header';
 import SearchBar from '../components/SearchBar/SearchBar';
 import CoinList from '../components/CoinList/CoinList';
-import { mapFetchedCryptos } from "../shared/utils/helpers";
+import { mapFetchedCryptos } from '../shared/utils/helpers';
 
 const coinMarketCapAxiosInstance = axios.create({
   baseURL: 'https://api.coinmarketcap.com/v2/',
@@ -17,6 +17,7 @@ class App extends Component {
     matchedCryptos: null,
     marketCap: 376097583984,
     searchQuery: '',
+    isLoading: true,
   };
 
   setMatchedCryptos = debounce(() => {
@@ -43,7 +44,8 @@ class App extends Component {
       .get('ticker/?limit=100')
       .then(({ data: { data: fetchedCryptos } }) => {
         this.setState({
-          cryptos: mapFetchedCryptos(fetchedCryptos)
+          cryptos: mapFetchedCryptos(fetchedCryptos),
+          isLoading: false,
         });
       });
   }
@@ -62,6 +64,7 @@ class App extends Component {
               ? this.state.matchedCryptos
               : this.state.cryptos
           }
+          isLoading={this.state.isLoading}
         />
       </div>
     );
