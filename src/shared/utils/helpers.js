@@ -1,6 +1,15 @@
 export default function formatAsCurrency(value) {
   const currencyFormatRegex = /\B(?=(\d{3})+(?!\d))/g;
-  return `$${String(value)
-    .replace(currencyFormatRegex, ' ')
-    .trim()}`;
+  const separator = '.';
+  const [wholePart, decimalPart] = String(value).split(separator);
+  const wholePartFormattedAsCurrency = wholePart.replace(
+    currencyFormatRegex,
+    ' ',
+  );
+  const formattedValue = decimalPart
+    ? [wholePartFormattedAsCurrency, decimalPart].join(separator)
+    : wholePartFormattedAsCurrency;
+
+  return `$${formattedValue}
+    `;
 }
