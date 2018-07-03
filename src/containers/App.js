@@ -1,15 +1,11 @@
 import React, { Component } from 'react';
 import debounce from 'lodash.debounce';
-import axios from 'axios';
+import getCoinList  from '../api/coinMarketCap';
 
 import Header from '../components/Header/Header';
 import SearchBar from '../components/SearchBar/SearchBar';
 import CoinList from '../components/CoinList/CoinList';
 import { mapFetchedCryptos } from '../shared/utils/helpers';
-
-const coinMarketCapAxiosInstance = axios.create({
-  baseURL: 'https://api.coinmarketcap.com/v2/',
-});
 
 class App extends Component {
   state = {
@@ -18,6 +14,19 @@ class App extends Component {
     marketCap: 376097583984,
     searchQuery: '',
     isLoading: true,
+  };
+
+  componentDidMount() {
+    getCoinList().then(({ data: { data: fetchedCryptos } }) => {
+      this.setState({
+        cryptos: mapFetchedCryptos(fetchedCryptos),
+        isLoading: false,
+      });
+    });
+  }
+
+  onSearchQueryChanged = event => {
+    this.setState({ searchQuery: event.target.value }, this.setMatchedCryptos);
   };
 
   setMatchedCryptos = debounce(() => {
@@ -35,27 +44,12 @@ class App extends Component {
     this.setState({ matchedCryptos });
   }, 250);
 
-  searchChangedHandler = event => {
-    this.setState({ searchQuery: event.target.value }, this.setMatchedCryptos);
-  };
-
-  componentDidMount() {
-    coinMarketCapAxiosInstance
-      .get('ticker/?limit=100')
-      .then(({ data: { data: fetchedCryptos } }) => {
-        this.setState({
-          cryptos: mapFetchedCryptos(fetchedCryptos),
-          isLoading: false,
-        });
-      });
-  }
-
   render() {
     return (
       <div>
         <Header cap={this.state.marketCap} />
         <SearchBar
-          handleChange={this.searchChangedHandler}
+          handleChange={this.onSearchQueryChanged}
           searchQuery={this.state.searchQuery}
         />
         <CoinList
