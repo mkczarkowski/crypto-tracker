@@ -9,7 +9,10 @@ import CoinListHead from './CoinListHead/CoinListHead';
 const NoResults = styled.p`
   margin-top: 3%;
   font-size: 1.2em;
+  text-align: center;
 `;
+
+export const NO_RESULTS_MESSAGE = 'Brak wyników dla wprowadzonej frazy.';
 
 const CenteredSpinner = styled(Spinner)`
   margin: 3%;
@@ -20,7 +23,7 @@ const CoinList = ({ cryptos, isLoading }) => {
   const isListEmpty = cryptos.length === 0;
   const renderCoin = crypto => <Coin {...crypto} key={crypto.acronym} />;
   const coinList = isListEmpty ? (
-    <NoResults>Brak wyników dla wprowadzonej frazy.</NoResults>
+    <NoResults>{NO_RESULTS_MESSAGE}</NoResults>
   ) : (
     cryptos.map(renderCoin)
   );
@@ -28,7 +31,9 @@ const CoinList = ({ cryptos, isLoading }) => {
   return (
     <div>
       <CoinListHead />
-      {isLoading ? <CenteredSpinner name="three-bounce" /> : coinList}
+      <div className="coin-list__content">
+        {isLoading ? <CenteredSpinner name="three-bounce" /> : coinList}
+      </div>
     </div>
   );
 };

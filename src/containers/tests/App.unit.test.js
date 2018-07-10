@@ -1,15 +1,15 @@
 import React from 'react';
 
-import App from './App';
-import Header from '../components/Header/Header';
-import SearchBar from '../components/SearchBar/SearchBar';
-import CoinList from '../components/CoinList/CoinList';
+import App from '../App';
+import Header from '../../components/Header/Header';
+import SearchBar from '../../components/SearchBar/SearchBar';
+import CoinList from '../../components/CoinList/CoinList';
 import debounce from 'lodash.debounce';
-import getCoinList from '../api/coinMarketCap';
+import getCoinList from '../../api/coinMarketCap';
 import { mappedMockedCryptos } from './utils/mockedCryptos';
 
 jest.mock('lodash.debounce', () => jest.fn(fn => fn));
-jest.mock('../api/coinMarketCap');
+jest.mock('../../api/coinMarketCap');
 
 describe('<App />', () => {
   let appWrapper;
@@ -140,9 +140,9 @@ describe('<App />', () => {
 
       describe('when searchQuery is matching with cryptos', () => {
         it('sets matchedCryptos to array of matched elements', () => {
-          expect(appInstance.state.matchedCryptos).toEqual(
-            [appInstance.state.cryptos[0]],
-          );
+          expect(appInstance.state.matchedCryptos).toEqual([
+            appInstance.state.cryptos[0],
+          ]);
         });
       });
 

@@ -1,4 +1,4 @@
-import { mapFetchedCryptos } from '../../shared/utils/helpers';
+import { mapFetchedCryptos } from '../../../shared/utils/helpers';
 
 const mockedCryptos = {
   data: {
@@ -44,6 +44,27 @@ const mockedCryptos = {
           },
         },
         last_updated: 1525137260,
+      },
+      '1831': {
+        id: 1831,
+        name: 'Bitcoin Cash',
+        symbol: 'BCH',
+        website_slug: 'bitcoin-cash',
+        rank: 4,
+        circulating_supply: 17223738.0,
+        total_supply: 17223738.0,
+        max_supply: 21000000.0,
+        quotes: {
+          USD: {
+            price: 734.823,
+            volume_24h: 357992000.0,
+            market_cap: 12656398461.0,
+            percent_change_1h: 0.12,
+            percent_change_24h: 1.22,
+            percent_change_7d: -1.76,
+          },
+        },
+        last_updated: 1530942734,
       },
     },
   },

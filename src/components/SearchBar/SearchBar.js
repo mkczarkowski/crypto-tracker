@@ -31,7 +31,13 @@ const Input = styled.input`
 const SearchBar = ({ handleChange, searchQuery }) => {
   return (
     <Wrapper>
-      <Input value={searchQuery} placeholder="Search" type="text" onChange={handleChange} />
+      <Input
+        value={searchQuery}
+        placeholder="Search"
+        type="text"
+        onChange={handleChange}
+        id="search-bar-input"
+      />
     </Wrapper>
   );
 };

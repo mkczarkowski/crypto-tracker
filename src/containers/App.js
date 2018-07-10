@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import debounce from 'lodash.debounce';
-import getCoinList  from '../api/coinMarketCap';
+import getCoinList from '../api/coinMarketCap';
 
 import Header from '../components/Header/Header';
 import SearchBar from '../components/SearchBar/SearchBar';
