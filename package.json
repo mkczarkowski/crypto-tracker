@@ -25,12 +25,15 @@
     "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "test:int": "react-scripts test --testPathPattern=.*int.test.js --env=jsdom",
+    "test:unit": "react-scripts test --testPathPattern=.*unit.test.js --env=node",
     "test": "react-scripts test --env=jsdom",
-    "test:unit": "react-scripts test --env=node",
+    "cypress": "cypress open",
     "eject": "react-scripts eject",
     "storybook": "start-storybook -p 9001 -c .storybook"
   },
   "devDependencies": {
+    "cypress": "^3.0.2",
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",
     "jest-styled-components": "^5.0.1"
