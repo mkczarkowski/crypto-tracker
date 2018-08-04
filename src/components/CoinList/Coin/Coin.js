@@ -1,31 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled from "styled-components";
 
-import CoinListCell from '../CoinListCell/CoinListCell';
 import CoinListRow from '../CoinListRow/CoinListRow';
+import CoinListCell from '../CoinListCell/CoinListCell';
+import PercentChange from './styled/PercentChange';
+import Symbol from './styled/Symbol';
 
 import { formatAsCurrency } from '../../../shared/utils/helpers';
 
-const Symbol = styled.img`
-  width: 36px;
-  height: 36px;
-  margin: 10px;
-`;
-
-const percentChangePlusColor = '#04BF12';
-const percentChangeMinusColor = '#dd2c00';
-const PercentChange = styled.div`
-  color: ${props =>
-    props.change > 0 ? percentChangePlusColor : percentChangeMinusColor};
-`;
-
 const Coin = ({ symbolPath, name, price, change, cap, supply, acronym }) => (
-  <CoinListRow>
+  <CoinListRow dataCy="coin">
     <CoinListCell isLarge>
       <Symbol src={symbolPath} alt={`${name}'s symbol`} />
-
-      <div>{name}</div>
+      <div id="name">{name}</div>
     </CoinListCell>
     <CoinListCell>{formatAsCurrency(price)}</CoinListCell>
     <CoinListCell>
