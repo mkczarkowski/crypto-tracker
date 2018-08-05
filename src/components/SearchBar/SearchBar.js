@@ -28,19 +28,18 @@ const Input = styled.input`
   }
 `;
 
-const SearchBar = ({ handleChange, searchQuery }) => {
-  return (
-    <Wrapper>
-      <Input
-        value={searchQuery}
-        placeholder="Search"
-        type="text"
-        onChange={handleChange}
-        id="search-bar-input"
-      />
-    </Wrapper>
-  );
-};
+const SearchBar = ({ handleChange, searchQuery }) => (
+  <Wrapper>
+    <Input
+      value={searchQuery}
+      placeholder="Search"
+      type="text"
+      onChange={handleChange}
+      id="search-bar-input"
+      data-cy="search-bar-input"
+    />
+  </Wrapper>
+);
 
 SearchBar.propTypes = {
   handleChange: PropTypes.func.isRequired,

@@ -2,24 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { StyledWrapper } from './styled/Wrapper';
 
-const Wrapper = styled.div`
-  display: flex;
-  flex-direction: row;
-  margin-left: ${styleVars.baseMargin};
-  margin-right: ${styleVars.baseMargin};
-
-  @media (max-width: 800px) {
-    margin-left: ${styleVars.smallMargin};
-    margin-right: ${styleVars.smallMargin};
-    font-size: 0.8em;
-  }
-`;
-
-const CoinListRow = ({ children }) => {
-  return <Wrapper>{children}</Wrapper>;
-};
+const CoinListRow = ({ dataCy, children }) => (
+  <StyledWrapper data-cy={dataCy}>{children}</StyledWrapper>
+);
 
 CoinListRow.propTypes = {
+  dataCy: PropTypes.string.isRequired,
   children: PropTypes.node.isRequired,
 };
 
