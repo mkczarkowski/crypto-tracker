@@ -6,7 +6,8 @@ import SearchBar from '../../components/SearchBar/SearchBar';
 import CoinList from '../../components/CoinList/CoinList';
 import debounce from 'lodash.debounce';
 import getCoinList from '../../api/coinMarketCap';
-import { mappedMockedCryptos } from './utils/mockedCryptos';
+import { mockedCryptos, mappedMockedCryptos } from './utils/mockedCryptos';
+const mockedCryptosCount = Object.keys(mockedCryptos.data.data).length;
 
 jest.mock('lodash.debounce', () => jest.fn(fn => fn));
 jest.mock('../../api/coinMarketCap');
@@ -164,7 +165,7 @@ describe('<App />', () => {
       setTimeout(() => {
         appWrapper.update();
         const state = appInstance.state;
-        expect(state.cryptos.length).toBe(2);
+        expect(state.cryptos.length).toBe(mockedCryptosCount);
         expect(state.isLoading).toBe(false);
 
         done();
